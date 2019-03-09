@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/09 01:22:58.181</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/03/09 18:21:08.254</modified_date>
+    <modified_date>2019/03/09 18:28:15.100</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -548,18 +548,6 @@
       <hidden>N</hidden>
     </template>
     <fields>
-      <field>
-        <name>(Do Not Modify) Modified On</name>
-        <type>Date</type>
-        <format>General</format>
-        <title/>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -588,40 +576,6 @@
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>(Do Not Modify) Lead</name>
-        <rename>(Do Not Modify) Lead</rename>
-        <type>None</type>
-        <length>255</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>(Do Not Modify) Row Checksum</name>
-        <rename>(Do Not Modify) Row Checksum</rename>
-        <type>None</type>
-        <length>255</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
       <meta>
         <name>(Do Not Modify) Modified On</name>
         <rename>(Do Not Modify) Modified On</rename>
