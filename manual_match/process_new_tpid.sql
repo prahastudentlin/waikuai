@@ -44,8 +44,8 @@ drop table if exists manualmatch.comparison
 ;
 create table manualmatch.comparison as
 select a.`(Do Not Modify) Lead`
-		,a.`(Do Not Modify) Modified On`
 		,a.`(Do Not Modify) Row Checksum`
+		,a.`(Do Not Modify) Modified On`
 		,a.`Multiple TPID`
 		,b.multipe_tpid
 		,case when a.`Multiple TPID`=b.multipe_tpid then 0 else 1 end updated
@@ -59,8 +59,8 @@ drop table if exists manualmatch.for_iaps
 ;
 create table manualmatch.for_iaps as
 select `(Do Not Modify) Lead`
-		,`(Do Not Modify) Modified On`
 		,`(Do Not Modify) Row Checksum`
+		,`(Do Not Modify) Modified On`
 		,multipe_tpid `Multiple TPID`
 from manualmatch.comparison
 where updated=1
