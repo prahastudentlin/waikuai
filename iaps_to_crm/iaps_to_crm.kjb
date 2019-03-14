@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/14 22:59:48.378</modified_date>
+  <modified_date>2019/03/14 23:11:56.958</modified_date>
   <parameters>
     <parameter>
       <name>country</name>
@@ -416,8 +416,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
-      <yloc>176</yloc>
+      <xloc>208</xloc>
+      <yloc>48</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
