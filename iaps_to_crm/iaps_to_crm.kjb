@@ -8,16 +8,16 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/14 23:11:56.958</modified_date>
+  <modified_date>2019/03/18 22:40:07.481</modified_date>
   <parameters>
     <parameter>
       <name>country</name>
-      <default_value>ua</default_value>
+      <default_value>ca</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country_full</name>
-      <default_value>Ukraine</default_value>
+      <default_value>Canada</default_value>
       <description/>
     </parameter>
   </parameters>
