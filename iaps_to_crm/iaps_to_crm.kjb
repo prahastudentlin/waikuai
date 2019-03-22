@@ -8,16 +8,41 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/18 22:40:07.481</modified_date>
+  <modified_date>2019/03/22 23:05:07.952</modified_date>
   <parameters>
     <parameter>
+      <name>assign_amount</name>
+      <default_value>50</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>campaign_name</name>
+      <default_value>TSAM-Bosnia and Herzegovina-FY19-SMB-Whitespace-Commercial-March, 2019</default_value>
+      <description/>
+    </parameter>
+    <parameter>
       <name>country</name>
-      <default_value>ca</default_value>
+      <default_value>ba</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country_full</name>
-      <default_value>Canada</default_value>
+      <default_value>Bosnia and Herzegovina</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>owner</name>
+      <default_value>Daniel Primorac</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>owner_alias</name>
+      <default_value>v-danpri@microsoft.com</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>project_name</name>
+      <default_value>TSAM-Bosnia and Herzegovina-FY19-SMB-Whitespace-Commercial</default_value>
       <description/>
     </parameter>
   </parameters>

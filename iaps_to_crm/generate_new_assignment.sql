@@ -15,8 +15,8 @@ create table stage_${country}.for_crm as
 select null `(Do Not Modify) Customer`
 		,null `(Do Not Modify) Row Checksum`
 		,null `(Do Not Modify) Modified On`
-		,null `Project Name`
-		,null `Campaign Name`
+		,'${project_name}' `Project Name`
+		,'${campaign_name}' `Campaign Name`
 		,null `Customer ID`
 		,`Multiple TPID`
 		,`Account Name` `Company Name`
@@ -39,6 +39,9 @@ select null `(Do Not Modify) Customer`
 		,`Start Engagement Date`
 		,`Start Engagement Date` `Revenue Recognition Start Date`
 		,`Revenue Recognition Expiration` `Revenue Recognition End Date`
-		,null `Owner`
-		,null `Owner Alias`
+		,'${owner}' `Owner`
+		,'${owner_alias}' `Owner Alias`
 from stage_${country}.iaps_not_crm
+limit ${assign_amount}
+;
+
