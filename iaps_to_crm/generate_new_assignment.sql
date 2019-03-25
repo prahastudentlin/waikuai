@@ -3,9 +3,11 @@ drop table if exists stage_${country}.iaps_not_crm
 ;
 
 create table stage_${country}.iaps_not_crm as
-select *
-from stage_${country}.iaps_latest
-where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_${country}.crm_latest)
+select a.*
+from stage_${country}.iaps_latest a
+left join stage_${country}.crm_latest b
+	on a.`(Do Not Modify) Lead`=b.`Lead ID`
+where b.`Lead ID` is null
 ;
 
 
