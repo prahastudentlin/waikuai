@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/25 20:04:13.381</modified_date>
+  <modified_date>2019/03/26 20:13:48.739</modified_date>
   <parameters>
     <parameter>
       <name>assign_amount</name>
@@ -17,32 +17,32 @@
     </parameter>
     <parameter>
       <name>campaign_name</name>
-      <default_value>TSAM-Malta-FY19-SMB-Compliance VL-Commercial-March, 2019</default_value>
+      <default_value>TSAM-Czech Republic-FY19-SMB-Compliance VL-Commercial-March, 2019</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country</name>
-      <default_value>mt</default_value>
+      <default_value>cz</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country_full</name>
-      <default_value>Malta</default_value>
+      <default_value>Czech Republic</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>owner</name>
-      <default_value>Hariton Mitakoudis</default_value>
+      <default_value>Jan Krejci</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>owner_alias</name>
-      <default_value>v-hamita@microsoft.com</default_value>
+      <default_value>v-jakrej@microsoft.com</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>project_name</name>
-      <default_value>TSAM-Malta-FY19-SMB-Compliance VL-Commercial</default_value>
+      <default_value>TSAM-Czech Republic-FY19-SMB-Compliance VL-Commercial</default_value>
       <description/>
     </parameter>
   </parameters>
