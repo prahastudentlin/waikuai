@@ -19,7 +19,7 @@ select null `(Do Not Modify) Customer`
 		,null `(Do Not Modify) Modified On`
 		,'${project_name}' `Project Name`
 		,'${campaign_name}' `Campaign Name`
-		,null `Customer ID`
+		,convert(${customer_id}, varchar(10)) `Customer ID`
 		,`Multiple TPID`
 		,`Account Name` `Company Name`
 		,null `Other Company Name`
@@ -46,4 +46,5 @@ select null `(Do Not Modify) Customer`
 from stage_${country}.iaps_not_crm
 limit ${assign_amount}
 ;
+
 
