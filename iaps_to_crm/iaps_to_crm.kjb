@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/28 02:44:56.939</modified_date>
+  <modified_date>2019/03/28 19:05:08.834</modified_date>
   <parameters>
     <parameter>
       <name>assign_amount</name>
@@ -17,37 +17,37 @@
     </parameter>
     <parameter>
       <name>campaign_name</name>
-      <default_value>TSAM-Czech Republic-FY19-SMB-Compliance VL-Commercial-March, 2019</default_value>
+      <default_value>TBD</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country</name>
-      <default_value>cz</default_value>
+      <default_value>ca</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country_full</name>
-      <default_value>Czech Republic</default_value>
+      <default_value>Canada</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>customer_id</name>
-      <default_value>4752629</default_value>
+      <default_value>4752663</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>owner</name>
-      <default_value>Jan Krejci</default_value>
+      <default_value>TBD</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>owner_alias</name>
-      <default_value>v-jakrej@microsoft.com</default_value>
+      <default_value>TBD</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>project_name</name>
-      <default_value>TSAM-Czech Republic-FY19-SMB-Compliance VL-Commercial</default_value>
+      <default_value>TBD</default_value>
       <description/>
     </parameter>
   </parameters>

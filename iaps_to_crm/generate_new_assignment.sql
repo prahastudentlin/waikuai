@@ -19,7 +19,7 @@ select null `(Do Not Modify) Customer`
 		,null `(Do Not Modify) Modified On`
 		,'${project_name}' `Project Name`
 		,'${campaign_name}' `Campaign Name`
-		,convert(${customer_id}, varchar(10)) `Customer ID`
+		,convert(@n := @n +1, varchar(10)) `Customer ID`
 		,`Multiple TPID`
 		,`Account Name` `Company Name`
 		,null `Other Company Name`
@@ -43,8 +43,7 @@ select null `(Do Not Modify) Customer`
 		,`Revenue Recognition Expiration` `Revenue Recognition End Date`
 		,'${owner}' `Owner`
 		,'${owner_alias}' `Owner Alias`
-from stage_${country}.iaps_not_crm
+from stage_${country}.iaps_not_crm, (SELECT @n := ${customer_id}) m
 limit ${assign_amount}
 ;
-
 
