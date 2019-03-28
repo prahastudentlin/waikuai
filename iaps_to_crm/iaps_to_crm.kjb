@@ -8,46 +8,51 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/28 19:05:08.834</modified_date>
+  <modified_date>2019/03/28 21:11:30.307</modified_date>
   <parameters>
     <parameter>
       <name>assign_amount</name>
-      <default_value>10000</default_value>
+      <default_value>100</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>campaign_name</name>
-      <default_value>TBD</default_value>
+      <default_value>TSAM-Serbia-FY19-SMB-Compliance VL-Commercial-March, 2019</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country</name>
-      <default_value>ca</default_value>
+      <default_value>rs</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country_full</name>
-      <default_value>Canada</default_value>
+      <default_value>Serbia</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>customer_id</name>
-      <default_value>4752663</default_value>
+      <default_value>4752758</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>fiscal_month</name>
+      <default_value>201803</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>owner</name>
-      <default_value>TBD</default_value>
+      <default_value>Dajana Vrga</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>owner_alias</name>
-      <default_value>TBD</default_value>
+      <default_value>v-davrga@microsoft.com</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>project_name</name>
-      <default_value>TBD</default_value>
+      <default_value>TSAM-Serbia-FY19-SMB-Compliance VL-Commercial</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -628,7 +633,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>mkdir "C:\Users\zangyu\OneDrive - Microsoft\${country_full}\CRM_New\2019_03"</script>
+      <script>mkdir "C:\Users\zangyu\OneDrive - Microsoft\${country_full}\CRM_New\${fiscal_month}"</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -653,7 +658,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>cd C:\Users\zangyu\OneDrive - Microsoft\${country_full}\CRM_New\2019_03</script>
+      <script>cd C:\Users\zangyu\OneDrive - Microsoft\${country_full}\CRM_New\${fiscal_month}</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
