@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/29 02:58:39.580</modified_date>
+  <modified_date>2019/03/30 14:15:28.912</modified_date>
   <parameters>
     <parameter>
       <name>assign_amount</name>
@@ -17,17 +17,22 @@
     </parameter>
     <parameter>
       <name>campaign_name</name>
-      <default_value>TSAM-Serbia-FY19-SMB-Compliance VL-Commercial-March, 2019</default_value>
+      <default_value>TSAM-Cyprus-FY19-SMB-Compliance VL-Commercial-March, 2019</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country_code</name>
-      <default_value>rs</default_value>
+      <default_value>cy</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>country_name</name>
-      <default_value>Serbia</default_value>
+      <default_value>Cyprus</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>customer_id</name>
+      <default_value>4752858</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -37,130 +42,28 @@
     </parameter>
     <parameter>
       <name>owner</name>
-      <default_value>Dajana Vrga</default_value>
+      <default_value>Hariton Mitakoudis</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>owner_alias</name>
-      <default_value>v-davrga@microsoft.com</default_value>
+      <default_value>v-hamita@microsoft.com</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>project_name</name>
-      <default_value>TSAM-Serbia-FY19-SMB-Compliance VL-Commercial</default_value>
+      <default_value>TSAM-Cyprus-FY19-SMB-Compliance VL-Commercial</default_value>
       <description/>
     </parameter>
   </parameters>
   <connection>
-    <name>manual_match</name>
-    <server>localhost</server>
-    <type>MARIADB</type>
-    <access>Native</access>
-    <database>manualmatch</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>mariadb_local</name>
-    <server>localhost</server>
+    <server>192.168.1.146</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>test</name>
-    <server>localhost</server>
-    <type>MARIADB</type>
-    <access>Native</access>
-    <database>test</database>
-    <port>3306</port>
-    <username>root</username>
+    <username>monkey</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
@@ -517,9 +420,9 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
 </sql>
       <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\zangyu\Documents\waikuai\iaps_to_crm\02_iaps_to_crm\generate_new_assignment.sql</sqlfilename>
+      <sqlfilename>C:\Users\admin\Documents\waikuai\iaps_to_crm\02_iaps_to_crm\generate_new_assignment.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
-      <connection>manual_match</connection>
+      <connection>mariadb_local</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -577,7 +480,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
       <sendOneStatement>F</sendOneStatement>
-      <connection>test</connection>
+      <connection>mariadb_local</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -601,7 +504,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>mkdir "C:\Users\zangyu\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}"</script>
+      <script>mkdir "C:\Users\admin\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}"</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -626,7 +529,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>cd C:\Users\zangyu\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}</script>
+      <script>cd C:\Users\admin\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>

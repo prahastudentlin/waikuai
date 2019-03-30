@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/07 22:31:20.738</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/03/29 02:23:12.373</modified_date>
+    <modified_date>2019/03/30 13:49:14.685</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -437,12 +437,12 @@
   </notepads>
   <connection>
     <name>mariadb_local</name>
-    <server>localhost</server>
+    <server>192.168.1.146</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>root</username>
+    <username>monkey</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
@@ -525,7 +525,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\Users\zangyu\OneDrive - Microsoft\0_Data\Evolution_FY19.xlsx</name>
+      <name>C:\Users\admin\OneDrive - Microsoft\0_Data\Evolution_FY19.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
