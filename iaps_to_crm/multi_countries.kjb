@@ -7,17 +7,17 @@
   <created_user>-</created_user>
   <created_date>2019/03/28 23:12:49.904</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/29 02:40:56.334</modified_date>
+  <modified_date>2019/03/31 19:13:59.031</modified_date>
   <parameters>
     </parameters>
   <connection>
     <name>mariadb_local</name>
-    <server>localhost</server>
+    <server>192.168.1.146</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>root</username>
+    <username>monkey</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
