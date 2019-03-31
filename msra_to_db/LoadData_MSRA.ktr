@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/07 22:31:20.738</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/03/26 19:00:14.300</modified_date>
+    <modified_date>2019/03/31 17:37:45.073</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -437,12 +437,12 @@
   </notepads>
   <connection>
     <name>mariadb_local</name>
-    <server>localhost</server>
+    <server>192.168.1.146</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>root</username>
+    <username>monkey</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
@@ -525,7 +525,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\Users\zangyu\OneDrive - Microsoft\8_MSRA\MSS_${country}_FYAll.xlsx</name>
+      <name>C:\Users\admin\OneDrive - Microsoft\8_MSRA\MSS_${country_code}_FYAll.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -901,7 +901,7 @@
       <schema_name/>
     </partitioning>
     <connection>mariadb_local</connection>
-    <schema>stage_${country}</schema>
+    <schema>stage_${country_code}</schema>
     <table>msra_fyall</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1017,10 +1017,10 @@
     <single_statement>N</single_statement>
     <replace_variables>Y</replace_variables>
     <quoteString>N</quoteString>
-    <sql>drop table if exists stage_${country}.msra_fyall
+    <sql>drop table if exists stage_${country_code}.msra_fyall
 ;
 
-CREATE TABLE stage_${country}.msra_fyall (
+CREATE TABLE stage_${country_code}.msra_fyall (
   `End Customer Top Parent Organization Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
   `End Customer Organization Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
   `End Customer Top Parent Organization ID` bigint DEFAULT NULL,
