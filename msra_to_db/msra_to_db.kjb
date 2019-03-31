@@ -8,11 +8,11 @@
   <created_user>-</created_user>
   <created_date>2019/03/26 17:56:31.431</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/31 17:29:15.634</modified_date>
+  <modified_date>2019/03/31 21:22:35.892</modified_date>
   <parameters>
     <parameter>
       <name>country_code</name>
-      <default_value>cz</default_value>
+      <default_value>pol</default_value>
       <description/>
     </parameter>
   </parameters>
