@@ -17,8 +17,18 @@ create table stage_${country_code}.for_crm as
 select null `(Do Not Modify) Customer`
 		,null `(Do Not Modify) Row Checksum`
 		,null `(Do Not Modify) Modified On`
-		,'${project_name}' `Project Name`
-		,'${campaign_name}' `Campaign Name`
+		,(select Projects 
+			from public.crm_project_campaign 
+			where `Fiscal Month`='${fiscal_month_name}' 
+			and `Subsidiary (Projects) (Projects)`='${country_name}'
+			and `Engagement Type (Projects) (Projects)` in ('Compliance VL','Whitespace')
+		) `Project Name`
+		,(select `Name` 
+			from public.crm_project_campaign 
+			where `Fiscal Month`='${fiscal_month_name}' 
+			and `Subsidiary (Projects) (Projects)`='${country_name}'
+			and `Engagement Type (Projects) (Projects)` in ('Compliance VL','Whitespace')
+		) `Campaign Name`
 		,convert(@n := @n +1, varchar(10)) `Customer ID`
 		,`Multiple TPID`
 		,`Account Name` `Company Name`
