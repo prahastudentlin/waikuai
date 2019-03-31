@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/07 22:31:20.738</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/03/30 13:49:48.349</modified_date>
+    <modified_date>2019/03/31 16:32:09.466</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -489,17 +489,365 @@
   <order>
     <hop>
       <from>create table</from>
-      <to>Microsoft Excel input</to>
+      <to>crm_customers</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Microsoft Excel input</from>
+      <from>crm_customers</from>
       <to>Table output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>crm_project_campaign</from>
+      <to>Table output 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Execute SQL script</from>
+      <to>crm_project_campaign</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Microsoft Excel input</name>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>mariadb_local</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>drop table if exists public.crm_project_campaign
+;
+
+CREATE TABLE public.crm_project_campaign
+(
+  `(Do Not Modify) Campaigns` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `(Do Not Modify) Row Checksum` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `(Do Not Modify) Modified On` datetime DEFAULT NULL,
+  `Created On` datetime DEFAULT NULL,
+  `Fiscal Month` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Fiscal Year` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Total of Customers` double DEFAULT NULL,
+  `Owner` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Engagement Type (Projects) (Projects)` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Area (Projects) (Projects)` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Region (Projects) (Projects)` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Subsidiary (Projects) (Projects)` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Projects` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>mariadb_local</connection>
+    <schema>stage_multi</schema>
+    <table>crm_latest</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>(Do Not Modify) Customer</column_name>
+        <stream_name>(Do Not Modify) Customer</stream_name>
+      </field>
+      <field>
+        <column_name>(Do Not Modify) Row Checksum</column_name>
+        <stream_name>(Do Not Modify) Row Checksum</stream_name>
+      </field>
+      <field>
+        <column_name>(Do Not Modify) Modified On</column_name>
+        <stream_name>(Do Not Modify) Modified On</stream_name>
+      </field>
+      <field>
+        <column_name>Project Name</column_name>
+        <stream_name>Project Name</stream_name>
+      </field>
+      <field>
+        <column_name>Campaign Name</column_name>
+        <stream_name>Campaign Name</stream_name>
+      </field>
+      <field>
+        <column_name>Subsidiary</column_name>
+        <stream_name>Subsidiary</stream_name>
+      </field>
+      <field>
+        <column_name>Customer ID</column_name>
+        <stream_name>Customer ID</stream_name>
+      </field>
+      <field>
+        <column_name>Multiple TPID</column_name>
+        <stream_name>Multiple TPID</stream_name>
+      </field>
+      <field>
+        <column_name>Company Name</column_name>
+        <stream_name>Company Name</stream_name>
+      </field>
+      <field>
+        <column_name>Other Company Name</column_name>
+        <stream_name>Other Company Name</stream_name>
+      </field>
+      <field>
+        <column_name>Address</column_name>
+        <stream_name>Address</stream_name>
+      </field>
+      <field>
+        <column_name>City</column_name>
+        <stream_name>City</stream_name>
+      </field>
+      <field>
+        <column_name>Postal Code</column_name>
+        <stream_name>Postal Code</stream_name>
+      </field>
+      <field>
+        <column_name>State/Province</column_name>
+        <stream_name>State/Province</stream_name>
+      </field>
+      <field>
+        <column_name>Country</column_name>
+        <stream_name>Country</stream_name>
+      </field>
+      <field>
+        <column_name>Language</column_name>
+        <stream_name>Language</stream_name>
+      </field>
+      <field>
+        <column_name>Company Phone</column_name>
+        <stream_name>Company Phone</stream_name>
+      </field>
+      <field>
+        <column_name>Company Email</column_name>
+        <stream_name>Company Email</stream_name>
+      </field>
+      <field>
+        <column_name>Company Website</column_name>
+        <stream_name>Company Website</stream_name>
+      </field>
+      <field>
+        <column_name>Number of Workstations</column_name>
+        <stream_name>Number of Workstations</stream_name>
+      </field>
+      <field>
+        <column_name>Number of Employess</column_name>
+        <stream_name>Number of Employess</stream_name>
+      </field>
+      <field>
+        <column_name>Call Status</column_name>
+        <stream_name>Call Status</stream_name>
+      </field>
+      <field>
+        <column_name>Sales Stage</column_name>
+        <stream_name>Sales Stage</stream_name>
+      </field>
+      <field>
+        <column_name>Next Action Date</column_name>
+        <stream_name>Next Action Date</stream_name>
+      </field>
+      <field>
+        <column_name>Lead ID</column_name>
+        <stream_name>Lead ID</stream_name>
+      </field>
+      <field>
+        <column_name>Start Engagement Date</column_name>
+        <stream_name>Start Engagement Date</stream_name>
+      </field>
+      <field>
+        <column_name>Revenue Recognition Start Date</column_name>
+        <stream_name>Revenue Recognition Start Date</stream_name>
+      </field>
+      <field>
+        <column_name>Revenue Recognition End Date</column_name>
+        <stream_name>Revenue Recognition End Date</stream_name>
+      </field>
+      <field>
+        <column_name>Owner</column_name>
+        <stream_name>Owner</stream_name>
+      </field>
+      <field>
+        <column_name>Owner Alias</column_name>
+        <stream_name>Owner Alias</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>584</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>mariadb_local</connection>
+    <schema>public</schema>
+    <table>crm_project_campaign</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>584</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>create table</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>mariadb_local</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>drop table if exists stage_multi.crm_latest
+;
+
+CREATE TABLE stage_multi.crm_latest
+(
+  `(Do Not Modify) Customer` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `(Do Not Modify) Row Checksum` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `(Do Not Modify) Modified On` datetime DEFAULT NULL,
+  `Project Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Campaign Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Subsidiary` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Customer ID` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Multiple TPID` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Company Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Other Company Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Address` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `City` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Postal Code` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `State/Province` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Country` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Language` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Company Phone` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Company Email` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Company Website` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Number of Workstations` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Number of Employess` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Call Status` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Sales Stage` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Next Action Date` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Lead ID` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Start Engagement Date` datetime DEFAULT NULL,
+  `Revenue Recognition Start Date` datetime DEFAULT NULL,
+  `Revenue Recognition End Date` datetime DEFAULT NULL,
+  `Owner` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Owner Alias` tinytext COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>crm_customers</name>
     <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -933,8 +1281,8 @@
     </GUI>
   </step>
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
+    <name>crm_project_campaign</name>
+    <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -943,145 +1291,223 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>mariadb_local</connection>
-    <schema>stage_multi</schema>
-    <table>crm_latest</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>C:\Users\admin\OneDrive - Microsoft\0_Data\CRM_Project_Campaigns.xlsx</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
     <fields>
       <field>
-        <column_name>(Do Not Modify) Customer</column_name>
-        <stream_name>(Do Not Modify) Customer</stream_name>
+        <name>(Do Not Modify) Campaigns</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>(Do Not Modify) Row Checksum</column_name>
-        <stream_name>(Do Not Modify) Row Checksum</stream_name>
+        <name>(Do Not Modify) Row Checksum</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>(Do Not Modify) Modified On</column_name>
-        <stream_name>(Do Not Modify) Modified On</stream_name>
+        <name>(Do Not Modify) Modified On</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Project Name</column_name>
-        <stream_name>Project Name</stream_name>
+        <name>Created On</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Campaign Name</column_name>
-        <stream_name>Campaign Name</stream_name>
+        <name>Fiscal Month</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Subsidiary</column_name>
-        <stream_name>Subsidiary</stream_name>
+        <name>Fiscal Year</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Customer ID</column_name>
-        <stream_name>Customer ID</stream_name>
+        <name>Total of Customers</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Multiple TPID</column_name>
-        <stream_name>Multiple TPID</stream_name>
+        <name>Owner</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Company Name</column_name>
-        <stream_name>Company Name</stream_name>
+        <name>Engagement Type (Projects) (Projects)</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Other Company Name</column_name>
-        <stream_name>Other Company Name</stream_name>
+        <name>Area (Projects) (Projects)</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Address</column_name>
-        <stream_name>Address</stream_name>
+        <name>Region (Projects) (Projects)</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>City</column_name>
-        <stream_name>City</stream_name>
+        <name>Subsidiary (Projects) (Projects)</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>Postal Code</column_name>
-        <stream_name>Postal Code</stream_name>
+        <name>Projects</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
       <field>
-        <column_name>State/Province</column_name>
-        <stream_name>State/Province</stream_name>
-      </field>
-      <field>
-        <column_name>Country</column_name>
-        <stream_name>Country</stream_name>
-      </field>
-      <field>
-        <column_name>Language</column_name>
-        <stream_name>Language</stream_name>
-      </field>
-      <field>
-        <column_name>Company Phone</column_name>
-        <stream_name>Company Phone</stream_name>
-      </field>
-      <field>
-        <column_name>Company Email</column_name>
-        <stream_name>Company Email</stream_name>
-      </field>
-      <field>
-        <column_name>Company Website</column_name>
-        <stream_name>Company Website</stream_name>
-      </field>
-      <field>
-        <column_name>Number of Workstations</column_name>
-        <stream_name>Number of Workstations</stream_name>
-      </field>
-      <field>
-        <column_name>Number of Employess</column_name>
-        <stream_name>Number of Employess</stream_name>
-      </field>
-      <field>
-        <column_name>Call Status</column_name>
-        <stream_name>Call Status</stream_name>
-      </field>
-      <field>
-        <column_name>Sales Stage</column_name>
-        <stream_name>Sales Stage</stream_name>
-      </field>
-      <field>
-        <column_name>Next Action Date</column_name>
-        <stream_name>Next Action Date</stream_name>
-      </field>
-      <field>
-        <column_name>Lead ID</column_name>
-        <stream_name>Lead ID</stream_name>
-      </field>
-      <field>
-        <column_name>Start Engagement Date</column_name>
-        <stream_name>Start Engagement Date</stream_name>
-      </field>
-      <field>
-        <column_name>Revenue Recognition Start Date</column_name>
-        <stream_name>Revenue Recognition Start Date</stream_name>
-      </field>
-      <field>
-        <column_name>Revenue Recognition End Date</column_name>
-        <stream_name>Revenue Recognition End Date</stream_name>
-      </field>
-      <field>
-        <column_name>Owner</column_name>
-        <stream_name>Owner</stream_name>
-      </field>
-      <field>
-        <column_name>Owner Alias</column_name>
-        <stream_name>Owner Alias</stream_name>
+        <name>Name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
       </field>
     </fields>
+    <sheets>
+      <sheet>
+        <name>FY19 Campaigns</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>SAX_POI</spreadsheet_type>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1091,81 +1517,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>584</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>create table</name>
-    <type>ExecSQL</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>mariadb_local</connection>
-    <execute_each_row>N</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>Y</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>drop table if exists stage_multi.crm_latest
-;
-
-CREATE TABLE stage_multi.crm_latest
-(
-  `(Do Not Modify) Customer` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `(Do Not Modify) Row Checksum` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `(Do Not Modify) Modified On` datetime DEFAULT NULL,
-  `Project Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Campaign Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Subsidiary` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Customer ID` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Multiple TPID` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Company Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Other Company Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Address` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `City` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Postal Code` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `State/Province` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Country` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Language` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Company Phone` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Company Email` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Company Website` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Number of Workstations` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Number of Employess` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Call Status` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Sales Stage` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Next Action Date` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Lead ID` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Start Engagement Date` datetime DEFAULT NULL,
-  `Revenue Recognition Start Date` datetime DEFAULT NULL,
-  `Revenue Recognition End Date` datetime DEFAULT NULL,
-  `Owner` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
-  `Owner Alias` tinytext COLLATE utf8mb4_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin</sql>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-    </arguments>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>192</yloc>
+      <xloc>384</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
