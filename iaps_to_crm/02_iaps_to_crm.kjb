@@ -8,28 +8,8 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/31 18:26:43.743</modified_date>
+  <modified_date>2019/04/01 21:19:04.792</modified_date>
   <parameters>
-    <parameter>
-      <name>assign_amount</name>
-      <default_value>10000</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>campaign_name</name>
-      <default_value>TBD</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>country_code</name>
-      <default_value>ca</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>country_name</name>
-      <default_value>Canada</default_value>
-      <description/>
-    </parameter>
     <parameter>
       <name>customer_id</name>
       <default_value>4752858</default_value>
@@ -43,21 +23,6 @@
     <parameter>
       <name>fiscal_month_name</name>
       <default_value>April, 2019</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>owner</name>
-      <default_value>TBD</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>owner_alias</name>
-      <default_value>TBD</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>project_name</name>
-      <default_value>TBD</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -791,7 +756,7 @@ ${country_name} - Assigned ${assigned_amount} out of ${assign_amount}
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>02_03_generate_file_to_crm</from>

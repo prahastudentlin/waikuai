@@ -3,13 +3,29 @@
   <description/>
   <extended_description/>
   <job_version/>
+  <job_status>0</job_status>
   <directory>/iaps_to_crm</directory>
   <created_user>-</created_user>
   <created_date>2019/03/28 23:12:49.904</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/03/31 19:13:59.031</modified_date>
+  <modified_date>2019/04/01 21:18:40.848</modified_date>
   <parameters>
-    </parameters>
+    <parameter>
+      <name>customer_id</name>
+      <default_value>4752858</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>fiscal_month</name>
+      <default_value>2019_04</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>fiscal_month_name</name>
+      <default_value>April, 2019</default_value>
+      <description/>
+    </parameter>
+  </parameters>
   <connection>
     <name>mariadb_local</name>
     <server>192.168.1.146</server>
@@ -394,7 +410,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>656</xloc>
-      <yloc>416</yloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -552,7 +568,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>656</xloc>
-      <yloc>272</yloc>
+      <yloc>160</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -591,7 +607,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>496</xloc>
-      <yloc>272</yloc>
+      <yloc>160</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -655,13 +671,22 @@
       <to>01_check_sub_amount</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>01_check_sub_amount</from>
       <to>Simple evaluation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>00_LoadData_CRM</from>
+      <to>01_get_information</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
