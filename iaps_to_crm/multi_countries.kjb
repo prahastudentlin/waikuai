@@ -8,11 +8,11 @@
   <created_user>-</created_user>
   <created_date>2019/03/28 23:12:49.904</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/04/01 21:18:40.848</modified_date>
+  <modified_date>2019/04/11 23:18:51.989</modified_date>
   <parameters>
     <parameter>
       <name>customer_id</name>
-      <default_value>4752858</default_value>
+      <default_value>4758460</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -28,12 +28,12 @@
   </parameters>
   <connection>
     <name>mariadb_local</name>
-    <server>192.168.1.146</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>monkey</username>
+    <username>root</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>

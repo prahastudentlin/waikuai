@@ -1,11 +1,11 @@
   <connection>
     <name>mariadb_local</name>
-    <server>192.168.1.146</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>monkey</username>
+    <username>root</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
