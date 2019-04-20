@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/04/19 22:33:49.092</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/04/20 00:41:50.815</modified_date>
+  <modified_date>2019/04/21 00:01:59.872</modified_date>
   <parameters>
     <parameter>
       <name>target_month</name>
@@ -649,6 +649,28 @@
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>this job currently is to move marketing list to current/previous month, 
+for leads already have been assigned</note>
+      <xloc>288</xloc>
+      <yloc>80</yloc>
+      <width>383</width>
+      <heigth>42</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <attributes>
     <group>
