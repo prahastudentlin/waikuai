@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/28 23:12:49.904</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/04/11 23:18:51.989</modified_date>
+  <modified_date>2019/04/21 00:55:41.126</modified_date>
   <parameters>
     <parameter>
       <name>customer_id</name>
@@ -695,6 +695,55 @@
     </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>change configuration in 
+
+C:\Users\admin\OneDrive - Microsoft\0_Data\Assignment_Info.xlsx
+job variable
+
+before run this job</note>
+      <xloc>240</xloc>
+      <yloc>16</yloc>
+      <width>365</width>
+      <heigth>104</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>To be updated:
+
+support multiple engagement type: like cybersecurity</note>
+      <xloc>976</xloc>
+      <yloc>48</yloc>
+      <width>291</width>
+      <heigth>57</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <attributes>
     <group>
