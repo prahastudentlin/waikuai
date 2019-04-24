@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/28 23:12:49.904</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/04/21 00:55:41.126</modified_date>
+  <modified_date>2019/04/24 23:36:11.757</modified_date>
   <parameters>
     <parameter>
       <name>customer_id</name>
@@ -724,11 +724,12 @@ before run this job</note>
     <notepad>
       <note>To be updated:
 
-support multiple engagement type: like cybersecurity</note>
+support multiple engagement type: like cybersecurity - done
+align crm engagemeent type with IAPS: like license verification</note>
       <xloc>976</xloc>
       <yloc>48</yloc>
-      <width>291</width>
-      <heigth>57</heigth>
+      <width>340</width>
+      <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>

@@ -21,13 +21,13 @@ select null `(Do Not Modify) Customer`
 			from public.crm_project_campaign 
 			where `Fiscal Month`='${fiscal_month_name}' 
 			and `Subsidiary (Projects) (Projects)`='${country_name}'
-			and `Engagement Type (Projects) (Projects)` in ('Compliance VL','Whitespace')
+			and `Engagement Type (Projects) (Projects)`='${engagement_type}'
 		) `Project Name`
 		,(select `Name` 
 			from public.crm_project_campaign 
 			where `Fiscal Month`='${fiscal_month_name}' 
 			and `Subsidiary (Projects) (Projects)`='${country_name}'
-			and `Engagement Type (Projects) (Projects)` in ('Compliance VL','Whitespace')
+			and `Engagement Type (Projects) (Projects)`='${engagement_type}'
 		) `Campaign Name`
 		,convert(@n := @n +1, varchar(10)) `Customer ID`
 		,`Multiple TPID`
