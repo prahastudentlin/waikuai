@@ -3,21 +3,27 @@
   <description/>
   <extended_description/>
   <job_version/>
+  <job_status>0</job_status>
   <directory>/manual_match</directory>
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/04/01 01:00:46.048</modified_date>
+  <modified_date>2019/05/07 21:03:16.373</modified_date>
   <parameters>
-    </parameters>
+    <parameter>
+      <name>fiscal_month</name>
+      <default_value>201904</default_value>
+      <description/>
+    </parameter>
+  </parameters>
   <connection>
     <name>mariadb_local</name>
-    <server>192.168.1.146</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>monkey</username>
+    <username>root</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
@@ -393,7 +399,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>384</xloc>
+      <xloc>592</xloc>
       <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
@@ -432,7 +438,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
+      <xloc>768</xloc>
       <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
@@ -450,7 +456,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
+      <xloc>768</xloc>
       <yloc>336</yloc>
       <attributes_kjc/>
     </entry>
@@ -489,8 +495,26 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
+      <xloc>768</xloc>
       <yloc>496</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>create database</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>create database if not exists manualmatch character set UTF8mb4 collate utf8mb4_bin</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>mariadb_local</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>392</xloc>
+      <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -505,15 +529,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Start</from>
-      <to>LoadData_IAPS</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>LoadData_Consultants</from>
       <to>SQL</to>
       <from_nr>0</from_nr>
@@ -525,6 +540,24 @@
     <hop>
       <from>SQL</from>
       <to>generate_file_to_iaps</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Start</from>
+      <to>create database</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>create database</from>
+      <to>LoadData_IAPS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
