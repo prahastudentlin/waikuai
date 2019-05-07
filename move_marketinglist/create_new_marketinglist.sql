@@ -3,10 +3,10 @@
 drop table if exists move_marketinglist.crm_targetmonth
 ;
 
-create table move_marketinglist.crm_targetmonth
+create table move_marketinglist.crm_currentmonth
 select *
 from move_marketinglist.crm_latest
-where `Campaign Name` like '%${target_month_name}%'
+where `Campaign Name` like '%${current_month_name}%'
 ;
 
 
@@ -30,7 +30,7 @@ select b.`(Do Not Modify) Lead`
 		,b.Campaign
 		,b.`Marketing List`
 		,c.Name
-from move_marketinglist.crm_targetmonth a
+from move_marketinglist.crm_currentmonth a
 left join move_marketinglist.iaps_evolution b
 	on a.`Lead ID`=b.`(Do Not Modify) Lead`
 left join move_marketinglist.target_marketinglist c
