@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/07 22:31:20.738</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/04/01 01:26:56.714</modified_date>
+    <modified_date>2019/06/01 12:34:52.703</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -437,12 +437,12 @@
   </notepads>
   <connection>
     <name>mariadb_local</name>
-    <server>192.168.1.146</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>monkey</username>
+    <username>root</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
@@ -520,12 +520,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\Users\admin\OneDrive - Microsoft\99_pilot\US\US_October_2019.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name/>
+      <name>C:\Users\admin\OneDrive - Microsoft\0_Data\Evolution_All.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -533,7 +528,7 @@
     </file>
     <fields>
       <field>
-        <name>Future Flag</name>
+        <name>(Do Not Modify) Lead</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -545,7 +540,7 @@
         <group/>
       </field>
       <field>
-        <name>Fiscal Month</name>
+        <name>(Do Not Modify) Row Checksum</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -557,7 +552,43 @@
         <group/>
       </field>
       <field>
-        <name>End Customer Top Parent Organization Name</name>
+        <name>(Do Not Modify) Modified On</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Created On</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Start Engagement Date</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Status</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -569,7 +600,7 @@
         <group/>
       </field>
       <field>
-        <name>End Customer Organization Name</name>
+        <name>Status Reason</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -581,8 +612,8 @@
         <group/>
       </field>
       <field>
-        <name>End Customer Top Parent Organization ID</name>
-        <type>Number</type>
+        <name>Revenue Recognition Expiration</name>
+        <type>Date</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -593,7 +624,7 @@
         <group/>
       </field>
       <field>
-        <name>Master Agreement Number / PAR Number</name>
+        <name>Campaign</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -605,7 +636,7 @@
         <group/>
       </field>
       <field>
-        <name>Program</name>
+        <name>Marketing List</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -617,7 +648,7 @@
         <group/>
       </field>
       <field>
-        <name>Business Unit</name>
+        <name>Area</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -629,7 +660,7 @@
         <group/>
       </field>
       <field>
-        <name>Rev Sum Category</name>
+        <name>Region</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -641,7 +672,7 @@
         <group/>
       </field>
       <field>
-        <name>Rev Sum Division</name>
+        <name>SubsidiaryName</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -653,7 +684,7 @@
         <group/>
       </field>
       <field>
-        <name>Product Family</name>
+        <name>Z_AP Engagement Type</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -665,7 +696,7 @@
         <group/>
       </field>
       <field>
-        <name>Part Description</name>
+        <name>Z_AP Engagement SubType</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -677,7 +708,7 @@
         <group/>
       </field>
       <field>
-        <name>Part Number</name>
+        <name>Account Name</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -689,7 +720,7 @@
         <group/>
       </field>
       <field>
-        <name>Product Type</name>
+        <name>Address 1</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -701,7 +732,7 @@
         <group/>
       </field>
       <field>
-        <name>Purchase Type</name>
+        <name>City</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -713,7 +744,7 @@
         <group/>
       </field>
       <field>
-        <name>Reported Subsegment</name>
+        <name>ZIP/Postal Code</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -725,7 +756,7 @@
         <group/>
       </field>
       <field>
-        <name>Detail Pricing Level</name>
+        <name>State/Province</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -737,7 +768,7 @@
         <group/>
       </field>
       <field>
-        <name>Pricing Level</name>
+        <name>Country</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -749,7 +780,7 @@
         <group/>
       </field>
       <field>
-        <name>Super User Type</name>
+        <name>Org Phone Number</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -761,7 +792,7 @@
         <group/>
       </field>
       <field>
-        <name>End Customer Address1</name>
+        <name>Primary Contact Email Address</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -773,7 +804,7 @@
         <group/>
       </field>
       <field>
-        <name>End Customer City</name>
+        <name>Site</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -785,7 +816,7 @@
         <group/>
       </field>
       <field>
-        <name>End Customer DUNS Number</name>
+        <name>Opportunity ID</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -797,8 +828,8 @@
         <group/>
       </field>
       <field>
-        <name>End Cust Purchase Amount Const $</name>
-        <type>Number</type>
+        <name>GSX_CRM_AccountID</name>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -809,8 +840,8 @@
         <group/>
       </field>
       <field>
-        <name>End Cust Purchase Licenses</name>
-        <type>Number</type>
+        <name>CRM Account ID</name>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -821,7 +852,43 @@
         <group/>
       </field>
       <field>
-        <name>Usage Subsidiary</name>
+        <name>Opportunity Description</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TPID</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Multiple TPID</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Sales Stage</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -835,7 +902,7 @@
     </fields>
     <sheets>
       <sheet>
-        <name>Sheet1</name>
+        <name>Evolution_All</name>
         <startrow>0</startrow>
         <startcol>0</startcol>
       </sheet>
@@ -884,8 +951,8 @@
       <schema_name/>
     </partitioning>
     <connection>mariadb_local</connection>
-    <schema>stage_us</schema>
-    <table>msra_oct</table>
+    <schema>stage_ru</schema>
+    <table>iaps_all</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
