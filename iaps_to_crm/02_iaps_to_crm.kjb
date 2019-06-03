@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/08 00:28:33.418</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/05/26 16:54:04.651</modified_date>
+  <modified_date>2019/06/03 22:06:41.608</modified_date>
   <parameters>
     <parameter>
       <name>customer_id</name>
@@ -28,12 +28,12 @@
   </parameters>
   <connection>
     <name>mariadb_local</name>
-    <server>localhost</server>
+    <server>192.168.1.148</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>root</username>
+    <username>dbeaver</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
@@ -390,7 +390,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
 </sql>
       <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\admin\Documents\waikuai\iaps_to_crm\02_iaps_to_crm\generate_new_assignment.sql</sqlfilename>
+      <sqlfilename>C:\Users\${current_user}\Documents\waikuai\iaps_to_crm\02_iaps_to_crm\generate_new_assignment.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>mariadb_local</connection>
       <parallel>N</parallel>
@@ -474,7 +474,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>mkdir "C:\Users\admin\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}"</script>
+      <script>mkdir "C:\Users\${current_user}\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}"</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -499,7 +499,7 @@ where `(Do Not Modify) Lead` not in (select `Lead ID` from stage_ar.crm_latest)
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>cd C:\Users\admin\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}</script>
+      <script>cd C:\Users\${current_user}\OneDrive - Microsoft\${country_name}\CRM_New\${fiscal_month}</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>

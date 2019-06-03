@@ -8,8 +8,13 @@
   <created_user>-</created_user>
   <created_date>2019/03/28 23:12:49.904</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/05/04 22:25:30.808</modified_date>
+  <modified_date>2019/06/03 22:02:07.519</modified_date>
   <parameters>
+    <parameter>
+      <name>current_user</name>
+      <default_value>v-zanyu</default_value>
+      <description/>
+    </parameter>
     <parameter>
       <name>customer_id</name>
       <default_value>4758460</default_value>
@@ -17,23 +22,23 @@
     </parameter>
     <parameter>
       <name>fiscal_month</name>
-      <default_value>2019_05</default_value>
+      <default_value>2019_06</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>fiscal_month_name</name>
-      <default_value>May, 2019</default_value>
+      <default_value>June, 2019</default_value>
       <description/>
     </parameter>
   </parameters>
   <connection>
     <name>mariadb_local</name>
-    <server>localhost</server>
+    <server>192.168.1.148</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>root</username>
+    <username>dbeaver</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>

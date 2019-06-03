@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/31 17:50:08.008</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/04/29 23:15:54.941</modified_date>
+    <modified_date>2019/06/04 00:00:11.297</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -436,12 +436,12 @@
   </notepads>
   <connection>
     <name>mariadb_local</name>
-    <server>localhost</server>
+    <server>192.168.1.148</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>public</database>
     <port>3306</port>
-    <username>root</username>
+    <username>dbeaver</username>
     <password>Encrypted 2be98afc86aa7f2d5f94afa2588c5f783</password>
     <servername/>
     <data_tablespace/>
@@ -517,7 +517,7 @@
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>C:\Users\admin\OneDrive - Microsoft\2_ManualMatch\${fiscal_month}\for_consultants\MM_${area}_FY19_MSS</name>
+      <name>C:\Users\${current_user}\OneDrive - Microsoft\2_ManualMatch\${fiscal_month}\for_consultants\MM_${area}_FY19_MSS</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
