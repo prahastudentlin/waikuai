@@ -1,23 +1,28 @@
 <job>
-  <name>ManualMatch</name>
+  <name>load_multiple_files</name>
   <description/>
   <extended_description/>
   <job_version/>
   <job_status>0</job_status>
-  <directory>/manual_match</directory>
+  <directory>/load_multiple_files</directory>
   <created_user>-</created_user>
-  <created_date>2019/03/08 00:28:33.418</created_date>
+  <created_date>2019/06/09 10:53:06.977</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/06/07 22:25:49.361</modified_date>
+  <modified_date>2019/06/09 13:41:40.968</modified_date>
   <parameters>
     <parameter>
-      <name>current_user</name>
-      <default_value>v-zanyu</default_value>
+      <name>file_directory</name>
+      <default_value>C:\Users\v-zanyu\OneDrive - Microsoft\8_MSRA\Canada</default_value>
       <description/>
     </parameter>
     <parameter>
-      <name>fiscal_month</name>
-      <default_value>201905</default_value>
+      <name>sub</name>
+      <default_value>ca</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>target_table</name>
+      <default_value>stage_ca.mss_fyall</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -366,18 +371,18 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>192</xloc>
-      <yloc>192</yloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>LoadData_IAPS</name>
+      <name>01_get_filenames</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>LoadData_IAPS</transname>
+      <transname>01_get_filenames</transname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -404,47 +409,45 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>592</xloc>
-      <yloc>192</yloc>
+      <xloc>336</xloc>
+      <yloc>240</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>LoadData_Consultants</name>
+      <name>02_load_file</name>
       <description/>
-      <type>TRANS</type>
+      <type>JOB</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
+      <job_object_id/>
       <filename/>
-      <transname>LoadData_Consultants</transname>
-      <directory>/manual_match</directory>
+      <jobname>02_load_file</jobname>
+      <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
+      <exec_per_row>Y</exec_per_row>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
+      <loglevel>Nothing</loglevel>
       <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
+      <pass_export>N</pass_export>
       <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
+      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>192</yloc>
+      <xloc>544</xloc>
+      <yloc>240</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -452,65 +455,40 @@
       <description/>
       <type>SQL</type>
       <attributes/>
-      <sql/>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\${current_user}\Documents\waikuai\manual_match\process_new_tpid.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>mariadb_local</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>336</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>generate_file_to_iaps</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>generate_file_to_iaps</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>496</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>create database</name>
-      <description/>
-      <type>SQL</type>
-      <attributes/>
-      <sql>create database if not exists manualmatch character set UTF8mb4 collate utf8mb4_bin</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
+      <sql>
+CREATE TABLE if not exists ${target_table} (
+  `End Customer Top Parent Organization Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `End Customer Organization Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `End Customer Top Parent Organization ID` int(11) DEFAULT NULL,
+  `Master Agreement Number / PAR Number` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Program` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Fiscal Month` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Sales Date` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Business Unit` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Rev Sum Category` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Rev Sum Division` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Product Family` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Part Description` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Part Number` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Product Type` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Purchase Type` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Reported Subsegment` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Reported Segment` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Detail Pricing Level` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Pricing Level` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Super User Type` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `End Customer Address1` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `End Customer City` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `End Customer DUNS Number` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `Usage Subsidiary` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
+  `End Cust Purchase Amount Const $` double DEFAULT NULL,
+  `End Cust Purchase Licenses` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+;
+
+truncate table ${target_table}
+;</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
       <sendOneStatement>F</sendOneStatement>
@@ -518,33 +496,15 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>392</xloc>
-      <yloc>192</yloc>
+      <xloc>336</xloc>
+      <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>LoadData_IAPS</from>
-      <to>LoadData_Consultants</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>LoadData_Consultants</from>
-      <to>SQL</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>SQL</from>
-      <to>generate_file_to_iaps</to>
+      <from>01_get_filenames</from>
+      <to>02_load_file</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -553,7 +513,7 @@
     </hop>
     <hop>
       <from>Start</from>
-      <to>create database</to>
+      <to>SQL</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -561,8 +521,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>create database</from>
-      <to>LoadData_IAPS</to>
+      <from>SQL</from>
+      <to>01_get_filenames</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -571,29 +531,6 @@
     </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>manual step:
-download IAPS
-save results from consultants to file ManualMatch_Collection.xlsx</note>
-      <xloc>80</xloc>
-      <yloc>64</yloc>
-      <width>355</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <attributes>
     <group>

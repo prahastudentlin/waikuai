@@ -1,26 +1,15 @@
 <job>
-  <name>ManualMatch</name>
+  <name>02_load_file</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <job_status>0</job_status>
-  <directory>/manual_match</directory>
+  <directory>/load_multiple_files</directory>
   <created_user>-</created_user>
-  <created_date>2019/03/08 00:28:33.418</created_date>
+  <created_date>2019/06/09 11:25:21.706</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/06/07 22:25:49.361</modified_date>
+  <modified_date>2019/06/09 13:50:52.788</modified_date>
   <parameters>
-    <parameter>
-      <name>current_user</name>
-      <default_value>v-zanyu</default_value>
-      <description/>
-    </parameter>
-    <parameter>
-      <name>fiscal_month</name>
-      <default_value>201905</default_value>
-      <description/>
-    </parameter>
-  </parameters>
+    </parameters>
   <connection>
     <name>mariadb_local</name>
     <server>192.168.1.148</server>
@@ -365,20 +354,20 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>192</xloc>
-      <yloc>192</yloc>
+      <xloc>200</xloc>
+      <yloc>100</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>LoadData_IAPS</name>
+      <name>02_01_set_variables</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>LoadData_IAPS</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
+      <transname>02_01_set_variable</transname>
+      <directory>${Internal.Entry.Current.Directory}/02_load_file</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -404,20 +393,40 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>592</xloc>
-      <yloc>192</yloc>
+      <xloc>400</xloc>
+      <yloc>100</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>LoadData_Consultants</name>
+      <name>Write to log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <attributes/>
+      <logmessage>============================
+${FILENAME}
+${SHORT_FILENAME}
+${PATH}
+${EXTENSION}
+============================</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>600</xloc>
+      <yloc>100</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>02_02_import_to_db</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>LoadData_Consultants</transname>
-      <directory>/manual_match</directory>
+      <transname>02_02_import_to_db</transname>
+      <directory>${Internal.Entry.Current.Directory}/02_load_file</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
@@ -443,8 +452,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>192</yloc>
+      <xloc>400</xloc>
+      <yloc>240</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -452,65 +461,11 @@
       <description/>
       <type>SQL</type>
       <attributes/>
-      <sql/>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\${current_user}\Documents\waikuai\manual_match\process_new_tpid.sql</sqlfilename>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>mariadb_local</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>336</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>generate_file_to_iaps</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>generate_file_to_iaps</transname>
-      <directory>${Internal.Entry.Current.Directory}</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>768</xloc>
-      <yloc>496</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>create database</name>
-      <description/>
-      <type>SQL</type>
-      <attributes/>
-      <sql>create database if not exists manualmatch character set UTF8mb4 collate utf8mb4_bin</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
+      <sql>insert into ${target_table}
+select *
+from stage_${sub}.${SHORT_FILENAME}
+</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
       <sendOneStatement>F</sendOneStatement>
@@ -518,42 +473,15 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>392</xloc>
-      <yloc>192</yloc>
+      <xloc>400</xloc>
+      <yloc>400</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>LoadData_IAPS</from>
-      <to>LoadData_Consultants</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>LoadData_Consultants</from>
-      <to>SQL</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>SQL</from>
-      <to>generate_file_to_iaps</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Start</from>
-      <to>create database</to>
+      <to>02_01_set_variables</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -561,8 +489,26 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>create database</from>
-      <to>LoadData_IAPS</to>
+      <from>02_01_set_variables</from>
+      <to>Write to log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>02_01_set_variables</from>
+      <to>02_02_import_to_db</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>02_02_import_to_db</from>
+      <to>SQL</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -571,29 +517,6 @@
     </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>manual step:
-download IAPS
-save results from consultants to file ManualMatch_Collection.xlsx</note>
-      <xloc>80</xloc>
-      <yloc>64</yloc>
-      <width>355</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <attributes>
     <group>
