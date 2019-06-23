@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/03/28 23:12:49.904</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/06/03 22:02:07.519</modified_date>
+  <modified_date>2019/06/23 12:14:43.358</modified_date>
   <parameters>
     <parameter>
       <name>current_user</name>
@@ -701,16 +701,18 @@
   </hops>
   <notepads>
     <notepad>
-      <note>change configuration in 
+      <note>before run this job
 
+change configuration in 
 C:\Users\admin\OneDrive - Microsoft\0_Data\Assignment_Info.xlsx
 job variable
 
-before run this job</note>
-      <xloc>240</xloc>
-      <yloc>16</yloc>
-      <width>365</width>
-      <heigth>104</heigth>
+download evolution from IAPS
+download customers from CRM</note>
+      <xloc>976</xloc>
+      <yloc>176</yloc>
+      <width>366</width>
+      <heigth>136</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
