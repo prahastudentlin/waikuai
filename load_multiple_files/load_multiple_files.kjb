@@ -8,21 +8,31 @@
   <created_user>-</created_user>
   <created_date>2019/06/09 10:53:06.977</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/06/09 13:41:40.968</modified_date>
+  <modified_date>2019/06/26 00:57:39.855</modified_date>
   <parameters>
     <parameter>
       <name>file_directory</name>
-      <default_value>C:\Users\v-zanyu\OneDrive - Microsoft\8_MSRA\Canada</default_value>
+      <default_value>C:\Users\v-zanyu\OneDrive - Microsoft\9_adhoc\20190626_Mismatch_IAPS_CRM</default_value>
       <description/>
     </parameter>
     <parameter>
-      <name>sub</name>
-      <default_value>ca</default_value>
+      <name>name_regex</name>
+      <default_value>CRM</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>sheet_name</name>
+      <default_value>Columns to Upload</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>target_schema</name>
+      <default_value>adhoc</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>target_table</name>
-      <default_value>stage_ca.mss_fyall</default_value>
+      <default_value>crm_all</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -370,8 +380,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>192</xloc>
-      <yloc>96</yloc>
+      <xloc>160</xloc>
+      <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -409,8 +419,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>336</xloc>
-      <yloc>240</yloc>
+      <xloc>576</xloc>
+      <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -446,17 +456,17 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>544</xloc>
-      <yloc>240</yloc>
+      <xloc>736</xloc>
+      <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>SQL</name>
+      <name>CREATE table MSRA</name>
       <description/>
       <type>SQL</type>
       <attributes/>
       <sql>
-CREATE TABLE if not exists ${target_table} (
+CREATE TABLE if not exists ${target_schema}.${target_table} (
   `End Customer Top Parent Organization Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
   `End Customer Organization Name` tinytext COLLATE utf8mb4_bin DEFAULT NULL,
   `End Customer Top Parent Organization ID` int(11) DEFAULT NULL,
@@ -486,7 +496,7 @@ CREATE TABLE if not exists ${target_table} (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
 ;
 
-truncate table ${target_table}
+truncate table ${target_schema}.${target_table}
 ;</sql>
       <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
@@ -496,8 +506,63 @@ truncate table ${target_table}
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>336</xloc>
-      <yloc>96</yloc>
+      <xloc>368</xloc>
+      <yloc>112</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>CREATE table CRM</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>
+CREATE TABLE if not exists ${target_schema}.${target_table}
+(
+  `(Do Not Modify) Customer` TINYTEXT
+, `(Do Not Modify) Row Checksum` TINYTEXT
+, `(Do Not Modify) Modified On` DATETIME
+, `Project Name` TINYTEXT
+, `Campaign Name` TINYTEXT
+, Subsidiary TINYTEXT
+, `Customer ID` TINYTEXT
+, `Multiple TPID` TINYTEXT
+, `Company Name` TINYTEXT
+, `Other Company Name` TINYTEXT
+, Address TINYTEXT
+, City TINYTEXT
+, `Postal Code` TINYTEXT
+, `State/Province` TINYTEXT
+, Country TINYTEXT
+, Language TINYTEXT
+, `Company Phone` TINYTEXT
+, `Company Email` TINYTEXT
+, `Company Website` TINYTEXT
+, `Number of Workstations` TINYTEXT
+, `Number of Employess` TINYTEXT
+, `Call Status` TINYTEXT
+, `Sales Stage` TINYTEXT
+, `Next Action Date` TINYTEXT
+, `Lead ID` TINYTEXT
+, `Start Engagement Date` DATETIME
+, `Revenue Recognition Start Date` DATETIME
+, `Revenue Recognition End Date` DATETIME
+, Owner TINYTEXT
+, `Owner Alias` TINYTEXT
+)
+;
+
+truncate table ${target_schema}.${target_table}
+;</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>mariadb_local</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>368</xloc>
+      <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -513,7 +578,25 @@ truncate table ${target_table}
     </hop>
     <hop>
       <from>Start</from>
-      <to>SQL</to>
+      <to>CREATE table MSRA</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>CREATE table MSRA</from>
+      <to>01_get_filenames</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Start</from>
+      <to>CREATE table CRM</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -521,7 +604,7 @@ truncate table ${target_table}
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>SQL</from>
+      <from>CREATE table CRM</from>
       <to>01_get_filenames</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

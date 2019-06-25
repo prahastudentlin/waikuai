@@ -7,7 +7,7 @@
   <created_user>-</created_user>
   <created_date>2019/06/09 11:25:21.706</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/06/09 13:50:52.788</modified_date>
+  <modified_date>2019/06/26 00:55:39.328</modified_date>
   <parameters>
     </parameters>
   <connection>
@@ -457,13 +457,13 @@ ${EXTENSION}
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>SQL</name>
+      <name>insert into target_schema.table</name>
       <description/>
       <type>SQL</type>
       <attributes/>
-      <sql>insert into ${target_table}
+      <sql>insert into ${target_schema}.${target_table}
 select *
-from stage_${sub}.${SHORT_FILENAME}
+from ${target_schema}.${SHORT_FILENAME}
 </sql>
       <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
@@ -508,7 +508,7 @@ from stage_${sub}.${SHORT_FILENAME}
     </hop>
     <hop>
       <from>02_02_import_to_db</from>
-      <to>SQL</to>
+      <to>insert into target_schema.table</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

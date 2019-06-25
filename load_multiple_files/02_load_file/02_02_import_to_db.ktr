@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/07 22:31:20.738</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/06/09 13:19:28.100</modified_date>
+    <modified_date>2019/06/26 01:05:32.548</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -488,18 +488,28 @@
   </connection>
   <order>
     <hop>
-      <from>Microsoft Excel input</from>
+      <from>MSRA Fields</from>
       <to>Table output</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Create table with CRM structure</from>
+      <to>MSRA Fields</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Create table with CRM structure</from>
+      <to>CRM Fields</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Execute SQL script</from>
-      <to>Microsoft Excel input</to>
+      <from>CRM Fields</from>
+      <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Execute SQL script</name>
+    <name>Create table with CRM structure</name>
     <type>ExecSQL</type>
     <description/>
     <distribute>Y</distribute>
@@ -514,37 +524,41 @@
     <single_statement>N</single_statement>
     <replace_variables>Y</replace_variables>
     <quoteString>N</quoteString>
-    <sql>drop table if exists stage_${sub}.${SHORT_FILENAME}
+    <sql>drop table if exists ${target_schema}.${SHORT_FILENAME}
 ;
 
-CREATE TABLE stage_${sub}.${SHORT_FILENAME}
+CREATE TABLE ${target_schema}.${SHORT_FILENAME}
 (
-  `End Customer Top Parent Organization Name` TINYTEXT
-, `End Customer Organization Name` TINYTEXT
-, `End Customer Top Parent Organization ID` INT
-, `Master Agreement Number / PAR Number` TINYTEXT
-, Program TINYTEXT
-, `Fiscal Month` TINYTEXT
-, `Sales Date` TINYTEXT
-, `Business Unit` TINYTEXT
-, `Rev Sum Category` TINYTEXT
-, `Rev Sum Division` TINYTEXT
-, `Product Family` TINYTEXT
-, `Part Description` TINYTEXT
-, `Part Number` TINYTEXT
-, `Product Type` TINYTEXT
-, `Purchase Type` TINYTEXT
-, `Reported Subsegment` TINYTEXT
-, `Reported Segment` TINYTEXT
-, `Detail Pricing Level` TINYTEXT
-, `Pricing Level` TINYTEXT
-, `Super User Type` TINYTEXT
-, `End Customer Address1` TINYTEXT
-, `End Customer City` TINYTEXT
-, `End Customer DUNS Number` TINYTEXT
-, `Usage Subsidiary` TINYTEXT
-, `End Cust Purchase Amount Const $` DOUBLE
-, `End Cust Purchase Licenses` DOUBLE
+  `(Do Not Modify) Customer` TINYTEXT
+, `(Do Not Modify) Row Checksum` TINYTEXT
+, `(Do Not Modify) Modified On` DATETIME
+, `Project Name` TINYTEXT
+, `Campaign Name` TINYTEXT
+, Subsidiary TINYTEXT
+, `Customer ID` TINYTEXT
+, `Multiple TPID` TINYTEXT
+, `Company Name` TINYTEXT
+, `Other Company Name` TINYTEXT
+, Address TINYTEXT
+, City TINYTEXT
+, `Postal Code` TINYTEXT
+, `State/Province` TINYTEXT
+, Country TINYTEXT
+, Language TINYTEXT
+, `Company Phone` TINYTEXT
+, `Company Email` TINYTEXT
+, `Company Website` TINYTEXT
+, `Number of Workstations` TINYTEXT
+, `Number of Employess` TINYTEXT
+, `Call Status` TINYTEXT
+, `Sales Stage` TINYTEXT
+, `Next Action Date` TINYTEXT
+, `Lead ID` TINYTEXT
+, `Start Engagement Date` DATETIME
+, `Revenue Recognition Start Date` DATETIME
+, `Revenue Recognition End Date` DATETIME
+, Owner TINYTEXT
+, `Owner Alias` TINYTEXT
 )
 ;</sql>
     <set_params>N</set_params>
@@ -569,7 +583,7 @@ CREATE TABLE stage_${sub}.${SHORT_FILENAME}
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel input</name>
+    <name>MSRA Fields</name>
     <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -922,7 +936,7 @@ CREATE TABLE stage_${sub}.${SHORT_FILENAME}
     </fields>
     <sheets>
       <sheet>
-        <name>Sheet3</name>
+        <name>${sheet_name}</name>
         <startrow>0</startrow>
         <startcol>0</startcol>
       </sheet>
@@ -955,7 +969,7 @@ CREATE TABLE stage_${sub}.${SHORT_FILENAME}
     </remotesteps>
     <GUI>
       <xloc>384</xloc>
-      <yloc>192</yloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -971,7 +985,7 @@ CREATE TABLE stage_${sub}.${SHORT_FILENAME}
       <schema_name/>
     </partitioning>
     <connection>mariadb_local</connection>
-    <schema>stage_${sub}</schema>
+    <schema>${target_schema}</schema>
     <table>${SHORT_FILENAME}</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1067,6 +1081,445 @@ CREATE TABLE stage_${sub}.${SHORT_FILENAME}
     </remotesteps>
     <GUI>
       <xloc>584</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CRM Fields</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>${FILENAME}</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>(Do Not Modify) Customer</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>(Do Not Modify) Row Checksum</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>(Do Not Modify) Modified On</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Project Name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Campaign Name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Subsidiary</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Customer ID</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Multiple TPID</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Company Name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Other Company Name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Address</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>City</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Postal Code</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>State/Province</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Country</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Language</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Company Phone</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Company Email</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Company Website</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Number of Workstations</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Number of Employess</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Call Status</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Sales Stage</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Next Action Date</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Lead ID</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Start Engagement Date</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Revenue Recognition Start Date</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Revenue Recognition End Date</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Owner</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Owner Alias</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Columns to Upload</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>SAX_POI</spreadsheet_type>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
