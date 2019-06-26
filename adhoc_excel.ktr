@@ -429,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/07 22:31:20.738</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/06/26 00:59:35.905</modified_date>
+    <modified_date>2019/06/26 23:14:39.745</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -520,7 +520,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\Users\v-zanyu\OneDrive - Microsoft\9_adhoc\20190626_Mismatch_IAPS_CRM\CRM_LATAM.xlsx</name>
+      <name>C:\Users\v-zanyu\OneDrive - Microsoft\9_adhoc\20190626_Mismatch_IAPS_CRM\Evolution_FY19_Canada.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -528,7 +528,7 @@
     </file>
     <fields>
       <field>
-        <name>(Do Not Modify) Customer</name>
+        <name>(Do Not Modify) Lead</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -564,7 +564,31 @@
         <group/>
       </field>
       <field>
-        <name>Project Name</name>
+        <name>Created On</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Start Engagement Date</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Status</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -576,7 +600,7 @@
         <group/>
       </field>
       <field>
-        <name>Campaign Name</name>
+        <name>Status Reason</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -588,7 +612,19 @@
         <group/>
       </field>
       <field>
-        <name>Subsidiary</name>
+        <name>Revenue Recognition Expiration</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Campaign</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -600,7 +636,7 @@
         <group/>
       </field>
       <field>
-        <name>Customer ID</name>
+        <name>Marketing List</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -612,7 +648,7 @@
         <group/>
       </field>
       <field>
-        <name>Multiple TPID</name>
+        <name>Area</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -624,7 +660,7 @@
         <group/>
       </field>
       <field>
-        <name>Company Name</name>
+        <name>Region</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -636,7 +672,7 @@
         <group/>
       </field>
       <field>
-        <name>Other Company Name</name>
+        <name>SubsidiaryName</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -648,7 +684,43 @@
         <group/>
       </field>
       <field>
-        <name>Address</name>
+        <name>Z_AP Engagement Type</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Z_AP Engagement SubType</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Account Name</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Address 1</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -672,7 +744,7 @@
         <group/>
       </field>
       <field>
-        <name>Postal Code</name>
+        <name>ZIP/Postal Code</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -708,7 +780,7 @@
         <group/>
       </field>
       <field>
-        <name>Language</name>
+        <name>Org Phone Number</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -720,7 +792,7 @@
         <group/>
       </field>
       <field>
-        <name>Company Phone</name>
+        <name>Primary Contact Email Address</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -732,7 +804,7 @@
         <group/>
       </field>
       <field>
-        <name>Company Email</name>
+        <name>Site</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -744,7 +816,7 @@
         <group/>
       </field>
       <field>
-        <name>Company Website</name>
+        <name>Opportunity ID</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -756,7 +828,7 @@
         <group/>
       </field>
       <field>
-        <name>Number of Workstations</name>
+        <name>GSX_CRM_AccountID</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -768,7 +840,7 @@
         <group/>
       </field>
       <field>
-        <name>Number of Employess</name>
+        <name>CRM Account ID</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -780,7 +852,31 @@
         <group/>
       </field>
       <field>
-        <name>Call Status</name>
+        <name>Opportunity Description</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TPID</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Multiple TPID</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -804,7 +900,7 @@
         <group/>
       </field>
       <field>
-        <name>Next Action Date</name>
+        <name>Primary Contact First Name</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -816,7 +912,7 @@
         <group/>
       </field>
       <field>
-        <name>Lead ID</name>
+        <name>Primary Contact Last Name</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -828,43 +924,7 @@
         <group/>
       </field>
       <field>
-        <name>Start Engagement Date</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Revenue Recognition Start Date</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Revenue Recognition End Date</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Owner</name>
+        <name>Primary Contact Job Title</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -876,7 +936,7 @@
         <group/>
       </field>
       <field>
-        <name>Owner Alias</name>
+        <name>Preferred Language</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -890,7 +950,7 @@
     </fields>
     <sheets>
       <sheet>
-        <name>Columns to Upload</name>
+        <name>Evolution_FY19</name>
         <startrow>0</startrow>
         <startcol>0</startcol>
       </sheet>
@@ -940,7 +1000,7 @@
     </partitioning>
     <connection>mariadb_local</connection>
     <schema>adhoc</schema>
-    <table>test</table>
+    <table>test_2</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>

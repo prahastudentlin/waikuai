@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2019/06/09 10:53:06.977</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/06/26 00:57:39.855</modified_date>
+  <modified_date>2019/06/26 23:18:26.944</modified_date>
   <parameters>
     <parameter>
       <name>file_directory</name>
@@ -17,12 +17,12 @@
     </parameter>
     <parameter>
       <name>name_regex</name>
-      <default_value>CRM</default_value>
+      <default_value>Evolution_FY19</default_value>
       <description/>
     </parameter>
     <parameter>
       <name>sheet_name</name>
-      <default_value>Columns to Upload</default_value>
+      <default_value>Evolution_FY19</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -32,7 +32,7 @@
     </parameter>
     <parameter>
       <name>target_table</name>
-      <default_value>crm_all</default_value>
+      <default_value>iaps_all</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -565,6 +565,66 @@ truncate table ${target_schema}.${target_table}
       <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
+    <entry>
+      <name>CREATE table IAPS</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <sql>
+CREATE TABLE if not exists ${target_schema}.${target_table}
+(
+  `(Do Not Modify) Lead` TINYTEXT
+, `(Do Not Modify) Row Checksum` TINYTEXT
+, `(Do Not Modify) Modified On` DATETIME
+, `Created On` DATETIME
+, `Start Engagement Date` DATETIME
+, Status TINYTEXT
+, `Status Reason` TINYTEXT
+, `Revenue Recognition Expiration` DATETIME
+, Campaign TINYTEXT
+, `Marketing List` TINYTEXT
+, Area TINYTEXT
+, Region TINYTEXT
+, SubsidiaryName TINYTEXT
+, `Z_AP Engagement Type` TINYTEXT
+, `Z_AP Engagement SubType` TINYTEXT
+, `Account Name` TINYTEXT
+, `Address 1` TINYTEXT
+, City TINYTEXT
+, `ZIP/Postal Code` TINYTEXT
+, `State/Province` TINYTEXT
+, Country TINYTEXT
+, `Org Phone Number` TINYTEXT
+, `Primary Contact Email Address` TINYTEXT
+, Site TINYTEXT
+, `Opportunity ID` TINYTEXT
+, GSX_CRM_AccountID TINYTEXT
+, `CRM Account ID` TINYTEXT
+, `Opportunity Description` TINYTEXT
+, TPID TINYTEXT
+, `Multiple TPID` TEXT
+, `Sales Stage` TINYTEXT
+, `Primary Contact First Name` TINYTEXT
+, `Primary Contact Last Name` TINYTEXT
+, `Primary Contact Job Title` TINYTEXT
+, `Preferred Language` TINYTEXT
+)
+;
+
+truncate table ${target_schema}.${target_table}
+;</sql>
+      <useVariableSubstitution>T</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>mariadb_local</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>368</xloc>
+      <yloc>320</yloc>
+      <attributes_kjc/>
+    </entry>
   </entries>
   <hops>
     <hop>
@@ -590,7 +650,7 @@ truncate table ${target_schema}.${target_table}
       <to>01_get_filenames</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -599,7 +659,7 @@ truncate table ${target_schema}.${target_table}
       <to>CREATE table CRM</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
     </hop>
@@ -612,8 +672,47 @@ truncate table ${target_schema}.${target_table}
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>CREATE table IAPS</from>
+      <to>01_get_filenames</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Start</from>
+      <to>CREATE table IAPS</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Need to manually change sheet name in 02_02_import_to_db</note>
+      <xloc>832</xloc>
+      <yloc>96</yloc>
+      <width>332</width>
+      <heigth>26</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <attributes>
     <group>
