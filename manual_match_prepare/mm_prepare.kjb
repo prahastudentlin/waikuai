@@ -8,11 +8,11 @@
   <created_user>-</created_user>
   <created_date>2019/04/29 22:21:13.651</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2019/06/04 00:05:05.050</modified_date>
+  <modified_date>2019/07/02 22:35:44.757</modified_date>
   <parameters>
     <parameter>
       <name>area</name>
-      <default_value>CEE</default_value>
+      <default_value>MEA</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -22,7 +22,7 @@
     </parameter>
     <parameter>
       <name>fiscal_month</name>
-      <default_value>201905</default_value>
+      <default_value>201906</default_value>
       <description/>
     </parameter>
   </parameters>
@@ -529,7 +529,7 @@ save ms sales data to 0_data\MSS_MM
 change parameter:area, fiscal_month</note>
       <xloc>192</xloc>
       <yloc>96</yloc>
-      <width>225</width>
+      <width>226</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -553,7 +553,7 @@ create sql schema and table, in case not exist
 create export file directory</note>
       <xloc>624</xloc>
       <yloc>96</yloc>
-      <width>246</width>
+      <width>247</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>

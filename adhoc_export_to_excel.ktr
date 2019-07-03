@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2019/03/31 17:50:08.008</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/06/10 02:21:00.053</modified_date>
+    <modified_date>2019/07/03 22:22:57.423</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -517,7 +517,7 @@
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>C:\Users\v-zanyu\OneDrive - Microsoft\Canada\Projection\FY20\FY20_CA_Projection</name>
+      <name>C:\Users\v-zanyu\OneDrive - Microsoft\9_adhoc\20190626_Mismatch_IAPS_CRM\FY19_IAPS_CRM_Mismatch_Others_Result</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
@@ -570,8 +570,9 @@
       <schema_name/>
     </partitioning>
     <connection>mariadb_local</connection>
-    <sql>select *
-from stage_ca.result_3</sql>
+    <sql>SELECT *
+from adhoc.temp_14_Others
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
